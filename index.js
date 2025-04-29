@@ -59,18 +59,9 @@ function freelancer(freelancers) {
   return freelancerContainer;
 }
 
-// === render h1 and the average rate para ===
+// === create the freelancer table ===
 
-const app = document.querySelector("#app");
-
-const h1 = document.createElement("h1");
-h1.textContent = "Freelancer Forum";
-app.append(h1);
-app.append(renderAverageRate());
-
-// === render the entire freelancer table ===
-
-function renderFreelancerTable() {
+function createFreelancerTable() {
   const freelancerTable = document.createElement("div");
   freelancerTable.classList.add("freelancer-table");
   freelancerTable.innerHTML = `
@@ -83,24 +74,20 @@ function renderFreelancerTable() {
     <div class="freelancers"></div>
   `;
 
-  app.append(freelancerTable);
+  return freelancerTable;
 }
 
-renderFreelancerTable();
+// === create the freelancers' details inside the table ===
 
-// === render the freelancers' details inside the table ===
-
-function renderFreelancerDetails() {
+function createFreelancerDetails() {
   const freelancersArray = freelancers.map(freelancer);
   const freelancersContainer = document.querySelector(".freelancers");
   freelancersContainer.append(...freelancersArray);
 }
 
-renderFreelancerDetails();
+// === create the average rate paragraph ===
 
-// === create the average rate paragraph, rendered above with h1 ===
-
-function renderAverageRate() {
+function createAverageRate() {
   const para = document.createElement("p");
   para.classList.add("average-rate");
   para.innerText = `The average rate is $${averageRate}.`;
@@ -108,4 +95,13 @@ function renderAverageRate() {
   return para;
 }
 
-// note: I rendered as I go so at this point all elements have been rendered on the page
+// === render the page ===
+
+function render() {
+  const $app = document.getElementById("app");
+  $app.innerHTML = "<h1>Freelancer Forum</h1>";
+  $app.append(createAverageRate(), createFreelancerTable());
+  createFreelancerDetails();
+}
+
+render();

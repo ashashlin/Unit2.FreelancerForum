@@ -104,6 +104,9 @@ h1,
 
 .freelancer {
   display: flex;
+}
+
+.freelancer:not(:last-child) {
   border-bottom: 1px dashed darkgray;
 }
 
