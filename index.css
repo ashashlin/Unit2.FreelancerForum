@@ -1,0 +1,128 @@
+/* RESET */
+/* 1. Use a more-intuitive box-sizing model */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* CUSTOM CSS */
+
+#app {
+  padding: 1rem 2rem;
+}
+
+h1,
+.average-rate {
+  text-align: center;
+}
+
+.average-rate {
+  margin-bottom: 1rem;
+}
+
+.freelancer-table {
+  max-width: 35rem;
+  margin: 0 auto;
+  border: 2px solid black;
+}
+
+.freelancer-header {
+  display: flex;
+  font-weight: 700;
+  border-bottom: 2px solid black;
+}
+
+.freelancer {
+  display: flex;
+  border-bottom: 1px dashed darkgray;
+}
+
+.freelancer:nth-child(2n + 1) {
+  background-color: rgba(211, 211, 211, 0.4);
+}
+
+.name,
+.rate {
+  flex-basis: 30%;
+  padding: 0 0.3rem;
+}
+
+.occupation {
+  flex-basis: 40%;
+  padding: 0 0.3rem;
+}
+
+.occupation,
+.rate {
+  border-left: 1px dashed darkgray;
+}
